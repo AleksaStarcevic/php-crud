@@ -10,10 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
-    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
-    <link rel="stylesheet" type="text/css" href="css/home.css">
+
 
 </head>
 
@@ -83,7 +82,7 @@
                     </thead>
                     <tbody>
                         <?php
-                        $query = "SELECT naslov,cena,opis,pregledi FROM oglas";
+                        $query = "SELECT oglasID,naslov,cena,opis,pregledi FROM oglas";
                         $oglasi = $conn->query($query);
 
                         while ($row = mysqli_fetch_array($oglasi)) { ?>
@@ -92,25 +91,12 @@
                                 <td><?php echo $row['cena']  ?></td>
                                 <td><?php echo $row['opis']  ?></td>
                                 <td><?php echo $row['pregledi']  ?></td>
+                                <td>
+                                    <a href="kontroler/edit.php?id=<?php echo $row['oglasID'] ?>">Izmeni</a>
+                                    <a href="kontroler/delete.php?id=<?php echo $row['oglasID'] ?>">Obrisi</a>
+                                </td>
                             </tr>
                         <?php } ?>
-
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="" class="btn btn-secondary">
-                                    <i class="fas fa-marker"></i>
-                                </a>
-                                <a href="" class="btn btn-danger">
-                                    <i class="far fa-trash-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>
