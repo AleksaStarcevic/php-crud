@@ -9,5 +9,13 @@
     scroll-behavior: smooth;
   }
 
+  body {
+    font-family: 'Montserrat', sans-serif;
+    
+    background-size:cover;
+    background-repeat: no-repeat;
+    
+  }
+
   
       

@@ -33,32 +33,33 @@ if (isset($_POST['update'])) {
 
 ?>
 
-
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card card-body">
-                <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
-                    <div class="form-group">
-                        <input name="naslov" type="text" class="form-control" value="<?php echo $naslov; ?>" placeholder="Izmeni naslov">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="opis" class="form-control" cols="30" rows="10"><?php echo $opis; ?></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input name="cena" type="text" class="form-control" value="<?php echo $cena; ?>" placeholder="Izmeni cenu">
-                    </div>
-                    <div class="form-group">
-                        <input name="pregledi" type="text" class="form-control" value="<?php echo $pregledi; ?>" placeholder="Izmeni preglede">
-                    </div>
-                    <button class="btn-success" name="update">
-                        Izmeni
-                    </button>
-                </form>
+<body class="bg-dark">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body bg-dark">
+                    <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                        <div class="form-group">
+                            <input name="naslov" type="text" class="form-control" value="<?php echo $naslov; ?>" placeholder="Izmeni naslov">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="opis" class="form-control" cols="30" rows="10"><?php echo $opis; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input name="cena" type="text" class="form-control" value="<?php echo $cena; ?>" placeholder="Izmeni cenu">
+                        </div>
+                        <div class="form-group">
+                            <input name="pregledi" type="text" class="form-control" value="<?php echo $pregledi; ?>" placeholder="Izmeni preglede">
+                        </div>
+                        <button class="btn-success" name="update">
+                            Izmeni
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</body>
 
 
 <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
