@@ -8,34 +8,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Oglasi</title>
+
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="css/home.css">
+    <link href="https://www.dafontfree.net/embed/c3BlY2lmeS1wZXJzb25hbC1ub3JtYWwtYmxhY2smZGF0YS81Mi9zLzE1Njg5Ny9TcGVjaWZ5UEVSU09OQUwtTm9ybUJsYWNrLnR0Zg" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/oglas.css?<?php echo time(); ?>" type="text/css">
 
 </head>
 
 <body>
 
 
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="home.php">Prodajem Kupujem</a>
-        </div>
+    <nav><a href="home.php">
+            <ul id="prva">
+                <li style="color:#003268"><b>prodajem</b></li>
+                <li class="kupujem"><b>
+                        <ul id="slova">
+                            <li style="color:#ff1e00">ku</li>
+                            <li style="color:#ffcc04">pu</li>
+                            <li style="color:#88c435">je</li>
+                            <li style="color:#1383c5">m</li>
+                        </ul>
+                    </b></li>
+            </ul>
+        </a>
+
     </nav>
 
-    <main class="container p-4">
-        <div class="row">
-            <div class="col-md-4">
+    <main class="container p-4 ">
+        <div class="row d-flex justify-content-center">
+
+
+            <div class="d-flex flex-column">
+                <form>
+                    <select style="background-color: #a4a0ee;" name="users" onchange="showUser(this.value)">
+                        <option value="">Selektuj korisnika:</option>
+                        <option value="1">Admin</option>
+                        <option value="2">Aleksa</option>
+                    </select>
+                </form>
+                <br>
+                <div id="txtHint"><b></b></div>
+            </div>
 
 
 
 
-
-                <!-- ADD TASK FORM -->
-                <div class="card card-body bg-dark">
-                    <form action="kontroler/add.php" name="unosOglasa" onsubmit="return validateForm()" method="POST">
+            <div id="dodavanje" class="col-md-5">
+                <div class="card card-body">
+                    <form action="kontroler/add.php" id="dodajForm" name="unosOglasa" onsubmit="return validateForm()" method="POST">
 
                         <div class="form-group">
                             <input type="text" name="naslov" class="form-control" placeholder="Naslov" autofocus>
@@ -59,8 +81,8 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-8">
-                <table id="tabelaOglasi" class="table table-bordered table-dark">
+            <div class="col-md-9 mt-5">
+                <table id="tabelaOglasi" class="table">
                     <thead>
                         <tr>
                             <th onclick="sortTable(0)">Naslov</th>
@@ -83,7 +105,7 @@
                                 <td><?php echo $row['pregledi']  ?></td>
                                 <td>
                                     <a href="kontroler/edit.php?id=<?php echo $row['oglasID'] ?>">Izmeni</a>
-                                    <a href="kontroler/delete.php?id=<?php echo $row['oglasID'] ?>">Obrisi</a>
+                                    <a id="btn-obrisi" href="kontroler/delete.php?id=<?php echo $row['oglasID'] ?>">Obrisi</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -98,13 +120,30 @@
 
 
 
-    <script src="js/script.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+
+
+    <script>
+        function showUser(str) {
+            if (str == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "getuser.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>

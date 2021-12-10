@@ -33,11 +33,14 @@ if (isset($_POST['update'])) {
 
 ?>
 
-<body class="bg-dark">
+
+<style> </style>
+
+<body style="background-color:#d1eaed;">
     <div class="container p-4">
         <div class="row">
             <div class="col-md-4 mx-auto">
-                <div class="card card-body bg-dark">
+                <div class="card card-body" style=" background-color: #a4a0ee; color:whitesmoke;border-radius: 0.8rem; padding:1.5rem">
                     <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
                         <div class="form-group">
                             <input name="naslov" type="text" class="form-control" value="<?php echo $naslov; ?>" placeholder="Izmeni naslov">
@@ -51,7 +54,7 @@ if (isset($_POST['update'])) {
                         <div class="form-group">
                             <input name="pregledi" type="text" class="form-control" value="<?php echo $pregledi; ?>" placeholder="Izmeni preglede">
                         </div>
-                        <button class="btn-success" name="update">
+                        <button class="btn btn-primary btn-block" name="update">
                             Izmeni
                         </button>
                     </form>

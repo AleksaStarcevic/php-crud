@@ -41,11 +41,28 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css?<?php echo time(); ?>">
+    <link href="https://www.dafontfree.net/embed/c3BlY2lmeS1wZXJzb25hbC1ub3JtYWwtYmxhY2smZGF0YS81Mi9zLzE1Njg5Ny9TcGVjaWZ5UEVSU09OQUwtTm9ybUJsYWNrLnR0Zg" rel="stylesheet" type="text/css" />
+
     <title>Prijava</title>
 </head>
 
 <body>
+    <nav><a href="index.php">
+            <ul id="prva">
+                <li style="color:#003268"><b>prodajem</b></li>
+                <li class="kupujem"><b>
+                        <ul id="slova">
+                            <li style="color:#ff1e00">ku</li>
+                            <li style="color:#ffcc04">pu</li>
+                            <li style="color:#88c435">je</li>
+                            <li style="color:#1383c5">m</li>
+                        </ul>
+                    </b></li>
+            </ul>
+        </a>
+
+    </nav>
 
     <form action="#" method="post">
         <div class="container">
