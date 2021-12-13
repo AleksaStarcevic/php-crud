@@ -40,7 +40,7 @@
                 <label for="fname">Pretrazi po naslovu:</label>
                 <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
             </form>
-            <p><span id="txtHint"></span></p>
+            <p><span id="txtHintt"></span></p>
         </div>
     </div>
 
@@ -154,13 +154,13 @@
 
         function showHint(str) {
             if (str.length == 0) {
-                document.getElementById("txtHint").innerHTML = "";
+                document.getElementById("txtHintt").innerHTML = "";
                 return;
             } else {
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
+                        document.getElementById("txtHintt").innerHTML = this.responseText;
                     }
                 };
                 xmlhttp.open("GET", "gethint.php?q=" + str, true);
