@@ -65,6 +65,19 @@ nav ul li {
    
 }
 
+#pretraga .content{
+  /* margin: 4rem 3rem; */
+  color:whitesmoke;
+  background:#a4a0ee;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+ 
+}
+
+#pretraga label {
+  font-size: 18px;
+}
+
  
 
 

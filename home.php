@@ -19,7 +19,6 @@
 
 <body>
 
-
     <nav><a href="home.php">
             <ul id="prva">
                 <li style="color:#003268"><b>prodajem</b></li>
@@ -33,10 +32,24 @@
                     </b></li>
             </ul>
         </a>
-
     </nav>
 
+    <div id="pretraga" class="d-flex justify-content-center">
+        <div class="content d-flex flex-column">
+            <form action="">
+                <label for="fname">Pretrazi po naslovu:</label>
+                <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+            </form>
+            <p><span id="txtHint"></span></p>
+        </div>
+    </div>
+
+
+
     <main class="container p-4 ">
+
+
+
         <div class="row d-flex justify-content-center">
 
 
@@ -135,6 +148,22 @@
                     }
                 };
                 xmlhttp.open("GET", "getuser.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        }
+
+        function showHint(str) {
+            if (str.length == 0) {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "gethint.php?q=" + str, true);
                 xmlhttp.send();
             }
         }
